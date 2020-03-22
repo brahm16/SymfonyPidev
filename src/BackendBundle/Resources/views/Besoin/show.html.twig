@@ -1,0 +1,51 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+{% block body %}
+    <h4>Detail de besoin</h4>
+    <table class="table table-hover table-bordered" id="dataTables-example">
+        <tr>
+            <th>Id</th>
+            <td>{{ besoin.id }}</td>
+        </tr>
+        <tr>
+            <th>Reference</th>
+            <td>{{ besoin.reference }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ besoin.date|date }}</td>
+        </tr>
+        <tr>
+            <th>Echeance</th>
+            <td>{{ besoin.echeance|date }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ besoin.statut }}</td>
+        </tr>
+        <tr>
+            <th>Entrepot</th>
+            <td>{{ besoin.entrepot.address }}</td>
+        </tr>
+    </table>
+    <br>
+    <h4>List des produits</h4>
+    <table class="table table-hover table-bordered" id="dataTables-example">
+        <th>Produit</th>
+        <th>Quantite</th>
+        <th>Unite</th>
+
+
+
+        {% for p in prodbesoins %}
+            <tr>
+
+                <td>{{ p.product.productName }}</td>
+                <td>{{ p.qte }}</td>
+                <td>{{ p.unite }}</td>
+            </tr>
+        {% else %}
+            <p>Pas de produit</p>
+        {% endfor %}
+
+    </table>
+{% endblock %}

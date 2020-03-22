@@ -1,0 +1,28 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+{% block body %}
+    <h3>List des commandes</h3>
+    <table class="table table-hover table-bordered" id="dataTables-example">
+        <th>Reference</th>
+        <th>Date</th>
+        <th>Fournisseur</th>
+        <th>Delete</th>
+        <th>Edit</th>
+
+
+
+        {% for c in commandes %}
+            <tr>
+                <td>{{ c.reference }}</td>
+                <td>{{ c.date|date }}</td>
+                <td>{{ c.fournisseur }}</td>
+                <td><a href="{{ path('delete_cmd',{'id':c.id}) }}">delete</a></td>
+                <td><a href="{{ path('edit_cmd',{'id':c.id,'f':c.fournisseur}) }}">edit</a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a >Ajouter Une CoMMANDE</a>
+
+{% endblock %}

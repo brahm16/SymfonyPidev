@@ -1,0 +1,17 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+{% block body %}
+    <h1>Fournisseur creation</h1>
+    <br>
+    <a href="{{ path('fournisseur_index') }}">Back to the list</a>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <br>
+
+                    <input class="btn btn-primary" type="submit" value="Ajouter" />
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

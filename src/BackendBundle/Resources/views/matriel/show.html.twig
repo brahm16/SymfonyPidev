@@ -1,0 +1,40 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+{% block body %}
+    <h1>Matriel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>IDM</th>
+                <td>{{ matriel.IDM }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ matriel.type }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ matriel.reference }}</td>
+            </tr>
+
+            <tr>
+                <th>Photo</th>
+                <td>{{ matriel.photo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('matriel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('matriel_edit', { 'id': matriel.IDM }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('add_cmd_trait') }}" method="post" id="form">
+        <h3>List des besoins</h3>
+        <div class="form-group field-entrepots">
+
+            <select name="f" id="f" class="form-control">
+                {% for f in fournisseurs %}
+                    <option value="{{ f.id }}">{{ f.firstname }}</option>
+                {% endfor %}
+            </select>
+
+
+        </div>
+        <table class="table table-hover table-bordered" id="dataTables-example">
+            <th>#</th>
+            <th>Reference</th>
+            <th>Echeance</th>
+            <th>Entrepot</th>
+            {% for b in besoins %}
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input type="checkbox" value="{{ b.id }}" class="form-check-input" id="{{ b.id }}" name="{{ b.id }}">
+                        </div>
+                    </td>
+                    <td>{{ b.reference }}</td>
+                    <td>{{ b.echeance|date }}</td>
+                    <td>{{ b.entrepot.address }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <div class="form-group field-entrepots">
+
+            <button type="submit" class="btn btn-primary btn-block">Ajouter Commande</button>
+
+
+        </div>
+    </form>
+
+    <
+{% endblock %}

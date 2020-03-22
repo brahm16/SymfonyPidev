@@ -1,0 +1,45 @@
+{% extends 'AgentGestionnaire.html.twig' %}
+
+{% block body %}
+    <h1>Fournisseurs list</h1>
+
+    <table class="table table-hover table-bordered" id="dataTables-example">
+
+    <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Phonenumber</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td><a href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}">{{ fournisseur.id }}</a></td>
+                <td>{{ fournisseur.firstname }}</td>
+                <td>{{ fournisseur.lastname }}</td>
+                <td>{{ fournisseur.phoneNumber }}</td>
+                <td>{{ fournisseur.address }}</td>
+                <td>{{ fournisseur.email }}</td>
+                <td>
+
+                            <a href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}" class="btn btn-primary">show</a>
+                    |
+                            <a href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}" class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fournisseur_new') }}" class="btn btn-warning">Create a new fournisseur</a>
+        </li>
+    </ul>
+{% endblock %}
