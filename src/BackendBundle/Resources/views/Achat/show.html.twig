@@ -1,0 +1,44 @@
+{% extends 'Client.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row top-margin">
+            <div class="col-xs-6">
+                <div class="card top-margin" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('client/images/c2.jpg') }}" alt="Card image cap">
+                    <a href="{{ path('add_achat',{'id':product.id}) }}" class="card-link btn btn-primary">Au panier</a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row top-margin">
+            <table class="table table-hover table-bordered" id="dataTables-example">
+                <tr>
+                    <th>Name</th>
+                    <td>{{ product.productName }}</td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td>{{ product.reference }}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{ product.productType }}</td>
+                </tr>
+                <tr>
+                    <th>Marque</th>
+                    <td>{{ product.marque }}</td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td>{{ product.weight }}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

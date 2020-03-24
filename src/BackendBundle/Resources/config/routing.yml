@@ -75,6 +75,27 @@ edit_cmd_trait:
 delete_cmd_besoin:
     path: /delete/cmd/besoin/{id}/{f}
     defaults: { _controller: BackendBundle:Commande:deleteCmdBesoin}
+index_achat:
+    path: /achats
+    defaults: { _controller: BackendBundle:Achat:index}
+index_achat_show:
+    path: /achats/show/{id}
+    defaults: { _controller: BackendBundle:Achat:detailsProduit}
+add_achat:
+    path: /achats/add/{id}
+    defaults: { _controller: BackendBundle:Achat:addAchat}
+panier_achat:
+    path: /achats/panier
+    defaults: { _controller: BackendBundle:Achat:panier}
+delete_achat:
+    path: /achats/panier/delete/{id}
+    defaults: { _controller: BackendBundle:Achat:delete}
+edit_achat:
+    path: /achats/panier/edit/{id}
+    defaults: { _controller: BackendBundle:Achat:edit}
+confirm_achat:
+    path: /achats/panier/confirm
+    defaults: { _controller: BackendBundle:Achat:confirm}
 
 
 
